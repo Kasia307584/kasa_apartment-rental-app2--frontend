@@ -41,3 +41,5 @@ function ProductDetailsView() {
     </>
   );
 }
+
+export default ProductDetailsView;
