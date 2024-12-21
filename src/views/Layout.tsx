@@ -16,7 +16,9 @@ function Layout({ children }: Children) {
         </div>
         <div>{children}</div>
       </div>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
