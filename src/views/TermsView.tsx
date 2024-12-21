@@ -1,4 +1,4 @@
-import backgroundImg from "../assets/background-img.png";
+import backgroundImg from "../assets/background-img_about.png";
 import Dropdown from "../components/DropdownBtn";
 
 function TermsView() {
