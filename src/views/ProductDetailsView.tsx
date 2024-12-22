@@ -24,7 +24,6 @@ interface Product {
 function ProductDetailsView() {
   const params = useParams();
   const productId = params.productId;
-  // access the fetched data and find the product that matches the productId
   const product: Product | undefined = products.find(
     (product) => product.id === productId
   );
@@ -39,7 +38,11 @@ function ProductDetailsView() {
         <p className="product__location">{}</p>
         <div className="product__tags">
           {/*map through tags and display one by one*/}
-          <p className="product-tag">{}</p>
+          {product.tags.map((tag, index) => (
+            <p className="product-tag" key={index}>
+              {tag}
+            </p>
+          ))}
         </div>
       </div>
       <div className="product-owner">
@@ -49,12 +52,17 @@ function ProductDetailsView() {
         </div>
       </div>
       <div className="stars">
-        {/*iterate over the data to apply conditionally colors on stars */}
-        <FontAwesomeIcon icon={faStar} className="star--recieved" />
-        <FontAwesomeIcon icon={faStar} className="star--recieved" />
-        <FontAwesomeIcon icon={faStar} className="star--recieved" />
-        <FontAwesomeIcon icon={faStar} className="star--nonrecieved" />
-        <FontAwesomeIcon icon={faStar} className="star--nonrecieved" />
+        {Array.from({ length: 5 }, (_, index) => (
+          <FontAwesomeIcon
+            key={index}
+            icon={faStar}
+            className={
+              index < Number(product.rating)
+                ? "star--recieved"
+                : "star--nonrecieved"
+            }
+          />
+        ))}
       </div>
       <div className="product__descriptions">
         {/*put the value of dropdownContent dinamically based on data */}
