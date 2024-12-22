@@ -4,9 +4,9 @@ import Dropdown from "../components/DropdownBtn";
 function TermsView() {
   return (
     <>
-      <div>
+      <section className="background-section">
         <img src={backgroundImg} alt="Landscape" />
-      </div>
+      </section>
       <Dropdown
         dropdownTitle="Fiablilité"
         dropdownContent="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes."

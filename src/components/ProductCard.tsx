@@ -13,7 +13,6 @@ function ProductCard({ image, title, productId }: ProductCard) {
         <img src={image} alt="Apartment photo" />
         <p className="product-card_title">{title}</p>
       </div>
-      //{" "}
     </Link>
   );
 }
