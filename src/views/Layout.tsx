@@ -1,21 +1,13 @@
 import { Outlet } from "react-router-dom";
-import logo from "../assets/logo.png";
 import Footer from "../components/FooterElement";
-import { ReactNode } from "react";
+import Navbar from "../components/Navbar.tsx";
 
-interface Children {
-  children: ReactNode;
-}
-
-function Layout({ children }: Children) {
+function Layout() {
   return (
     <>
-      <div className="page-header">
-        <div>
-          <img src={logo} alt="Logo" />
-        </div>
-        <div>{children}</div>
-      </div>
+      <header>
+        <Navbar />
+      </header>
       <main>
         <Outlet />
       </main>
