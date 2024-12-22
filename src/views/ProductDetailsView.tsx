@@ -45,9 +45,9 @@ function ProductDetailsView() {
         </div>
       </div>
       <div className="product-owner">
-        <p className="product-owner__name">{}</p>
-        <div>
-          <img src="" alt="Owner photo" />
+        <p className="product-owner__name">{product.host.name}</p>
+        <div className="product-owner__photo">
+          <img src={product.host.picture} alt="Owner photo" />
         </div>
       </div>
       <div className="stars">
