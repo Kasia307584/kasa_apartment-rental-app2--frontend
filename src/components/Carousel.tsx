@@ -6,14 +6,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 interface Carousel {
-  imageSrc: string;
-  listImages?: string[];
+  listImages: string[];
 }
 
 type IconDirection = "right" | "left";
 
-function Carousel({ imageSrc, listImages }: Carousel) {
-  const [currentImage, setCurrentImage] = useState(imageSrc);
+function Carousel({ listImages }: Carousel) {
+  const [currentImage, setCurrentImage] = useState(listImages[0]);
 
   const handleClick = (iconDirection: IconDirection): void => {
     setCurrentImage((currentImage) => {
