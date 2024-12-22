@@ -4,7 +4,7 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 interface Dropdown {
   dropdownTitle: string;
-  dropdownContent: string;
+  dropdownContent: string | string[];
 }
 
 function DropdownBtn({ dropdownTitle, dropdownContent }: Dropdown) {
@@ -30,7 +30,13 @@ function DropdownBtn({ dropdownTitle, dropdownContent }: Dropdown) {
         </div>
       </div>
       <div className={`dropdown-content ${isActive ? "active" : "inactive"}`}>
-        <p>{dropdownContent}</p>
+        {typeof dropdownContent === "string" ? (
+          <p>{dropdownContent}</p>
+        ) : (
+          dropdownContent.map((content, index) => {
+            return <p key={index}>{content}</p>;
+          })
+        )}
       </div>
     </div>
   );

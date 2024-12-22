@@ -37,7 +37,6 @@ function ProductDetailsView() {
         <h1 className="product__name">{}</h1>
         <p className="product__location">{}</p>
         <div className="product__tags">
-          {/*map through tags and display one by one*/}
           {product.tags.map((tag, index) => (
             <p className="product-tag" key={index}>
               {tag}
@@ -65,9 +64,14 @@ function ProductDetailsView() {
         ))}
       </div>
       <div className="product__descriptions">
-        {/*put the value of dropdownContent dinamically based on data */}
-        <Dropdown dropdownTitle="Description" dropdownContent="" />
-        <Dropdown dropdownTitle="Équipements" dropdownContent="" />
+        <Dropdown
+          dropdownTitle="Description"
+          dropdownContent={product.description}
+        />
+        <Dropdown
+          dropdownTitle="Équipements"
+          dropdownContent={product.equipments}
+        />
       </div>
     </>
   );
