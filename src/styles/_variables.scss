@@ -1,0 +1,56 @@
+/* Primary Colors */
+$primary-color: #3498db; /* Main color for buttons, links, etc. */
+$secondary-color: #2ecc71; /* Secondary color for highlights */
+
+/* Neutral Colors */
+$text-color: #333; /* Main text color */
+$text-light-color: #555; /* Subtle text color */
+$background-color: #f9f9f9; /* General background color */
+$card-background: #ffffff; /* Background color for cards */
+$border-color: #ddd; /* Border color */
+
+/* Accent Colors */
+$error-color: #e74c3c; /* Error messages, validation errors */
+$success-color: #27ae60; /* Success messages */
+$warning-color: #f39c12; /* Warning messages */
+
+/* Hover and Active States */
+$hover-primary: darken($primary-color, 10%);
+$hover-secondary: darken($secondary-color, 10%);
+
+/* Font Family */
+$font-family: "Roboto", sans-serif;
+$font-family-secondary: "Open Sans", sans-serif;
+
+/* Font Sizes */
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 20px;
+$font-size-h1: 32px;
+$font-size-h2: 24px;
+$font-size-h3: 18px;
+
+/* Font Weights */
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+/* Line Heights */
+$line-height-base: 1.5;
+
+/* Spacing (use rems for consistency) */
+$spacing-xs: 0.5rem; /* Small padding/margin */
+$spacing-sm: 1rem; /* Default padding/margin */
+$spacing-md: 1.5rem; /* Medium padding/margin */
+$spacing-lg: 2rem; /* Large padding/margin */
+$spacing-xl: 3rem; /* Extra large padding/margin */
+
+/* Border Radius */
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+/* Box Shadows */
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.2);
+$box-shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.3);
