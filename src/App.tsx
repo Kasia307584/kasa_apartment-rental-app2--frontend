@@ -1,8 +1,7 @@
-import "./App.css";
 import Layout from "./views/Layout.tsx";
 import Details from "./views/ProductDetailsView.tsx";
 import Terms from "./views/TermsView.tsx";
-import Home from "./views/HomeVIew.tsx";
+import Home from "./views/HomeView.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
