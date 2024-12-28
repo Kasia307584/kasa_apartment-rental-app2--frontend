@@ -3,7 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Carousel from "../components/Carousel";
 import Dropdown from "../components/DropdownBtn";
-import products from "../data/products.json";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_APARTMENTS = gql`
+  query GetApartments {
+    apartments {
+      id
+      title
+      cover
+      pictures
+      description
+      host {
+        name
+        picture
+      }
+      rating
+      location
+      equipments
+      tags
+    }
+  }
+`;
 
 interface Product {
   id: string;
@@ -21,11 +41,21 @@ interface Product {
   tags: string[];
 }
 
+interface Products {
+  apartments: Product[];
+}
+
 function ProductDetailsView() {
   const params = useParams();
   const productId = params.productId;
-  const product: Product | undefined = products.find(
-    (product) => product.id === productId
+
+  const { loading, error, data } = useQuery<Products>(GET_APARTMENTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const product: Product | undefined = data?.apartments.find(
+    (apt) => apt.id === productId
   );
   if (!product) {
     return <p>Apartment not found!</p>;
@@ -34,8 +64,8 @@ function ProductDetailsView() {
     <>
       <Carousel listImages={product.pictures} />
       <div className="product">
-        <h1 className="product__name">{}</h1>
-        <p className="product__location">{}</p>
+        <h1 className="product__name">{product.title}</h1>
+        <p className="product__location">{product.location}</p>
         <div className="product__tags">
           {product.tags.map((tag, index) => (
             <p className="product-tag" key={index}>

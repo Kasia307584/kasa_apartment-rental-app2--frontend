@@ -1,8 +1,32 @@
 import backgroundImg from "../assets/background-img.png";
 import Card from "../components/ProductCard";
-import products from "../data/products.json";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_APARTMENTS = gql`
+  query GetApartments {
+    apartments {
+      id
+      title
+      cover
+    }
+  }
+`;
+
+interface Apartment {
+  id: string;
+  title: string;
+  cover: string;
+}
+export interface Apartments {
+  apartments: Apartment[];
+}
 
 function HomeView() {
+  const { loading, error, data } = useQuery<Apartments>(GET_APARTMENTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <>
       <section className="background-section background-section--with-text">
@@ -12,13 +36,13 @@ function HomeView() {
         </p>
       </section>
       <section className="cards-grid">
-        {products.map((product) => {
+        {data?.apartments.map((apt: Apartment) => {
           return (
             <Card
-              image={product.pictures[0]}
-              title={product.title}
-              productId={product.id}
-              key={product.id}
+              image={apt.cover}
+              title={apt.title}
+              productId={apt.id}
+              key={apt.id}
             />
           );
         })}
