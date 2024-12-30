@@ -5,8 +5,8 @@ import Carousel from "../components/Carousel";
 import Dropdown from "../components/DropdownBtn";
 import { gql, useQuery } from "@apollo/client";
 
-const GET_APARTMENTS = gql`
-  query GetApartments($id: ID!) {
+const GET_APARTMENT = gql`
+  query GetApartment($id: ID!) {
     apartment(id: $id) {
       title
       pictures
@@ -43,7 +43,7 @@ function ProductDetailsView() {
   const params = useParams();
   const productId = params.productId;
 
-  const { loading, error, data } = useQuery<Product>(GET_APARTMENTS, {
+  const { loading, error, data } = useQuery<Product>(GET_APARTMENT, {
     variables: { id: productId },
   });
   if (loading) return <p>Loading...</p>;

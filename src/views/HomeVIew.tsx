@@ -17,7 +17,7 @@ interface Apartment {
   title: string;
   cover: string;
 }
-export interface Apartments {
+interface Apartments {
   apartments: Apartment[];
 }
 
