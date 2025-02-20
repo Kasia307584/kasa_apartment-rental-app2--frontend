@@ -1,6 +1,6 @@
 import backgroundImg from "../assets/background-img.png";
 import Card from "../components/ProductCard";
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery, useMutation } from "@apollo/client";
 
 const GET_APARTMENTS = gql`
   query GetApartments {
@@ -11,6 +11,15 @@ const GET_APARTMENTS = gql`
     }
   }
 `;
+// const ADD_APARTMENT = gql`
+//   mutation AddApartment($title: String!, $cover: String!) {
+//     apartment(title: $title, cover: $cover) {
+//       id
+//       title
+//       cover
+//     }
+//   }
+// `;
 
 interface Apartment {
   id: string;
@@ -20,9 +29,17 @@ interface Apartment {
 interface Apartments {
   apartments: Apartment[];
 }
+// interface AddApartmentResponse {
+//   addApartment: Apartment;
+// }
 
 function HomeView() {
   const { loading, error, data } = useQuery<Apartments>(GET_APARTMENTS);
+  // const [addApart] = useMutation<AddApartmentResponse>(ADD_APARTMENT);
+
+  // const handleAddApartment = () => {
+  //   addApart({ variables: { title: "new apart", cover: "url" } });
+  // };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -35,6 +52,7 @@ function HomeView() {
           Chez vous, partout et ailleurs
         </p>
       </section>
+      {/* <button onClick={handleAddApartment}>Add apartment</button> */}
       <section className="cards-grid">
         {data?.apartments.map((apt: Apartment) => {
           return (
