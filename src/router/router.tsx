@@ -1,7 +1,7 @@
 import Layout from "../views/Layout.tsx";
 import Details from "../views/ProductDetailsView.tsx";
 import Terms from "../views/TermsView.tsx";
-import Home from "../views/HomeView.tsx";
+import Home from "../views/HomeVIew.tsx";
 import { Routes, Route } from "react-router-dom";
 
 function Router() {
