@@ -6,7 +6,7 @@ Backend setup with Apollo: [Kasa - backend](https://github.com/Kasia307584/kasa_
 
 _Work in progress:_
 
-- This app is an upgrade of this [Kasa project](https://github.com/Kasia307584/kasa_apartment-rental-app--frontend), incorporating TypeScript and GraphQL.
+- This app is an upgrade of this [Kasa project](https://github.com/Kasia307584/kasa_apartment-rental-app--frontend), incorporating TypeScript and GraphQL and set up using Vite instead of CRA.
 - The styles implementation needs to be finalized for this project.
 - See the live version of the basic project [here](https://kasa-app-five.vercel.app/).
 
